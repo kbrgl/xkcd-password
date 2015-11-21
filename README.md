@@ -5,7 +5,7 @@
 * Ruby
 
 ### What word list are you using?
-I'm using a word list I found at (a GitHub repo called 'google-10000-english')[https://github.com/first20hours/google-10000-english]. However, you can use pretty much any word list for this.
+I'm using a word list I found at [a GitHub repo called 'google-10000-english'](https://github.com/first20hours/google-10000-english). However, you can use pretty much any word list for this.
 
 ### How the heck do I use this thing?
 If you just want a password then just clone the repo and run either the Python or Ruby script. The Python script will run on both Python 2 and  Python 3 (:D).

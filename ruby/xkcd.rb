@@ -30,7 +30,8 @@ def parse(file, delimiter: "\n")
   end
 end
 
-word_list = parse('dictionary.txt')
-
-generator = XkcdPasswordGenerator.new(word_list)
-print generator.generate(separator: ' ')
+if __FILE__ == $0
+    word_list = parse('dictionary.txt')
+    generator = XkcdPasswordGenerator.new(word_list)
+    print generator.generate(separator: ' ')
+end

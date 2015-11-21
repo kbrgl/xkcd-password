@@ -8,7 +8,7 @@ class XkcdPasswordGenerator:
         self.word_list = word_list
 
     def generate(self, words=4, separator=' '):
-        result = [self.random_word() for i in range(words)]
+        result = [self.random_word() for _ in range(words)]
         if separator is not None:
             return separator.join(result)
         else:
@@ -18,8 +18,12 @@ class XkcdPasswordGenerator:
         return self.word_list[randint(0, (len(self.word_list) - 1))]
 
 
-def parse(file, delimiter="\n"):
-    """splits the contents of file at delimiter"""
+def parse(file, delimiter=","):
+    """
+    splits the contents of file at delimiter
+    :param delimiter: the delimiter by which words in word list are separated
+    :param file: the name of the file to be parsed
+    """
     if os.path.isfile(file):
         result = []
         with open(file) as f:
@@ -30,5 +34,6 @@ def parse(file, delimiter="\n"):
     else:
         raise RuntimeError('word list ' + file + ' not found')
 
-generator = XkcdPasswordGenerator(parse('dictionary.txt'))
-print(generator.generate(separator=' '))
+if __name__ == '__main__':
+    generator = XkcdPasswordGenerator(parse('dictionary.txt', '\n'))
+    print(generator.generate(separator=' '))

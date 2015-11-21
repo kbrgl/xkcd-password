@@ -22,7 +22,7 @@ def parse(file, delimiter=","):
     """
     splits the contents of file at delimiter
     :param delimiter: the delimiter by which words in word list are separated
-    :param file: the name of the file to be parsed
+    :param file: name of the file to be parsed
     """
     if os.path.isfile(file):
         result = []
@@ -35,5 +35,5 @@ def parse(file, delimiter=","):
         raise RuntimeError('word list ' + file + ' not found')
 
 if __name__ == '__main__':
-    generator = XkcdPasswordGenerator(parse('dictionary.txt', '\n'))
-    print(generator.generate(separator=' '))
+    generator = XkcdPasswordGenerator(parse('dictionary.csv'))
+    print(generator.generate())

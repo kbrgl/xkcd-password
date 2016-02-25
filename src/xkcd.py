@@ -18,22 +18,7 @@ class XkcdPasswordGenerator:
         return self.word_list[randint(0, (len(self.word_list) - 1))]
 
 
-def parse(file, delimiter=","):
-    """
-    splits the contents of file at delimiter
-    :param delimiter: the delimiter by which words in word list are separated
-    :param file: name of the file to be parsed
-    """
-    if os.path.isfile(file):
-        result = []
-        with open(file) as f:
-            contents = f.read().split(delimiter)
-            for each_line in contents:
-                result.append(each_line)
-        return result
-    else:
-        raise RuntimeError('word list ' + file + ' not found')
-
 if __name__ == '__main__':
-    generator = XkcdPasswordGenerator(parse('dictionary.csv'))
+    with open('dictionary.csv') as f:
+        generator = XkcdPasswordGenerator([line for line in f.read().split(',')])
     print(generator.generate())
